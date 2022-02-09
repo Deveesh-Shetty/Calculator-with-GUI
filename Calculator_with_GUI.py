@@ -34,7 +34,6 @@ def click(event):
                 scvalue.set('')
                 screen.update()
 
-
     elif text == "C" or text == "AC":
         scvalue.set("")
         screen.update()
@@ -43,7 +42,7 @@ def click(event):
         scvalue.set(scvalue.get() + text)
         screen.update()
 
-lb = Label(text=time.asctime())
+lb = Label(text=time.asctime(),relief=GROOVE)
 lb.pack(side=BOTTOM,fill=X)
 
 scvalue = StringVar()
@@ -51,14 +50,12 @@ scvalue.set("")
 screen = Entry(root,textvariable=scvalue,font="lucida 40 bold")
 screen.pack(padx=10,pady=10)
 
-f = Frame(root,bg="#979797")
-f.pack()
 button_list = (7,8,9,'C','AC',4,5,6,'*','-',1,2,3,'/','+','.',0,'00','=','%')
 for i in button_list:
-    if i == 4 or i == 1 or i == '.':
-        f = Frame(root, bg="#979797")
+    if i == 7 or i == 4 or i == 1 or i == '.':
+        f = Frame(root, bg="#979797",relief=SUNKEN)
         f.pack()
-    b = Button(f, text=str(i), padx=16, pady=10, font="lucida 15 bold")
+    b = Button(f, text=str(i), padx=16, pady=10, font="lucida 15 bold",relief=GROOVE)
     b.pack(side=LEFT, padx=12, pady=10)
     b.bind("<Button-1>", click)
 
